@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Component Lifecycle -->
+<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var Hello = React.createClass({
+        getInitialState: function() {
+          return {
+            opacity: 1.0
+          };
+        },
+
+        componentDidMount: function() {
+          this.timer = setInterval(function () {
+            var opacity = this.state.opacity;
+            opacity -= .05;
+            if (opacity < 0.1) {
+              opacity = 1.0;
+            }
+            this.setState({
+              opacity: opacity
+            });
+          }.bind(this),100);
+        },
+        render: function () {
+          return (
+            <div style={{opacity: this.state.opacity}}>
+              Hello {this.props.name}
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <Hello name="world"/>,
+        document.body
+      );
+    </script>
+  </body>
+</html>
+
+<!-- Components have three main parts of their lifecycle: Mounting(being inserted into the DOM), Updating(being re-rendered) and Unmounting(being removed from the DOM). React provides hooks into these lifecycle part. will methods are called right before something happens, and did methods which are called right after something happens. -->
+
+
+
+<!--
+The following is a whole list of lifecycle methods.
+
+componentWillMount()
+componentDidMount()
+componentWillUpdate(object nextProps, object nextState)
+componentDidUpdate(object prevProps, object prevState)
+componentWillUnmount()
+componentWillReceiveProps(object nextProps): invoked when a mounted component receives new props.
+shouldComponentUpdate(object nextProps, object nextState): invoked when a component decides whether any changes warrant an update to the DOM. -->

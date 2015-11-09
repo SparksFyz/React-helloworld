@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- this.props.children -->
+<!-- React uses this.props.children to access a component's children nodes. -->
+<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      var NotesList = React.createClass({
+        render: function() {
+          return (
+            <ol>
+            {
+              this.props.children.map(function (child) {
+                return <li>{child}</li>
+              })
+            }
+            </ol>
+          )
+        }
+      });
+
+      ReactDOM.render(
+        <NotesList>
+          <span>hello</span>
+          <span>world</span>
+        </NotesList>,
+        document.body
+      );
+    </script>
+  </body>
+</html>
+<!-- Please be minded that only if the component has more than one child node, you could take this.props.children as an array, otherwise this.props.children.map throws a TypeError. -->

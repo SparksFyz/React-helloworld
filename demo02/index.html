@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+Use JavaScript in JSX
+You could also use JavaScript in JSX. It takes angle brackets (<) as the beginning of HTML syntax, and curly brackets ({) as the beginning of JavaScript syntax.
+ -->
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+    var names = ['Alice', 'Bob', 'Sam'];
+
+    ReactDOM.render(
+      <div>
+      {
+        names.map(function (name) {
+          return <div>Hello, {name}!</div>
+        })
+      }
+      </div>,
+      document.getElementById('example')
+    );
+    </script>
+  </body>
+</html>

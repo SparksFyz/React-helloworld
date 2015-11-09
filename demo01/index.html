@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+Render JSX
+ -->
+<html lang="en">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      ReactDOM.render(
+        <h1>hello world</h1>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
+
+<!--
+
+The template syntax in React is called JSX. It is allowed in JSX to put HTML tags directly into JavaScript codes. ReactDOM.render() is the method which translates JSX into HTML, and renders it into the specified DOM node.
+ -->
